@@ -1,0 +1,58 @@
+//Create a new database:-
+CREATE DATABASE coapps;
+
+//Switch to the newly created database:-
+USE coapps;
+
+Create the orders table:-
+CREATE TABLE orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    order_date DATE,
+    customer_id INT,
+    total_amount DECIMAL(10, 2)
+);
+
+Insert some sample data into the orders table:-
+INSERT INTO orders (order_date, customer_id, total_amount) VALUES
+('2024-03-08', 1, 100.50),
+('2024-03-09', 2, 75.25),
+('2024-03-10', 1, 150.75),
+('2024-03-10', 3, 200.00),
+('2024-03-11', 2, 50.00),
+('2024-03-12', 1, 120.00);
+
+Create the students table:-
+Query to find the total amount of orders placed by each customer:-
+SELECT customer_id, SUM(total_amount) AS total_orders_amount
+FROM orders
+GROUP BY customer_id;
+
+Insert some sample data into the students table:
+INSERT INTO students (student_name, course_id) VALUES
+('Mirza', 1),
+('Raju', 2),
+('Rahul', 1),
+('Abood', 3),
+('Emaad', 2),
+('Raju', 3);
+
+Create the courses table:-
+CREATE TABLE courses (
+    course_id INT AUTO_INCREMENT PRIMARY KEY,
+    course_name VARCHAR(255)
+);
+
+Insert some sample data into the courses table:-
+INSERT INTO courses (course_name) VALUES
+('Math'),
+('Science'),
+('Physics');
+
+Query to list the names of students along with the courses they are enrolled in:-
+SELECT s.student_name, c.course_name
+FROM students s
+JOIN courses c ON s.course_id = c.course_id;
+
+
+To see all tables in a MySQL database named coapps:-
+SHOW TABLES;
