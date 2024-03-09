@@ -22,6 +22,12 @@ INSERT INTO orders (order_date, customer_id, total_amount) VALUES
 ('2024-03-12', 1, 120.00);
 
 Create the students table:-
+CREATE TABLE students (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    student_name VARCHAR(255),
+    course_id INT
+);
+
 Query to find the total amount of orders placed by each customer:-
 SELECT customer_id, SUM(total_amount) AS total_orders_amount
 FROM orders
